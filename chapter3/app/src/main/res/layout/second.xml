@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/txt_first"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="这是第1行"
+            android:layout_weight="1"
+            android:background="#aa0000"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="这是第2行"
+            android:layout_weight="1"
+            android:background="#00aa00"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="这是第3行"
+            android:layout_weight="1"
+            android:background="#0000aa"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="这是第4行"
+            android:layout_weight="1"
+            android:background="#00aaaa"/>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
