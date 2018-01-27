@@ -6,36 +6,58 @@
     android:layout_height="match_parent"
     tools:context="com.example.lan.firstapp.MainActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10px">
-        <TextView
-            android:id="@+id/txt_title"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10px"
+            android:layout_weight="5">
+            <TextView
+                android:id="@+id/txt_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Type here"/>
+            <EditText
+                android:id="@+id/et_entry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_title"/>
+
+            <Button
+                android:id="@+id/btn_Ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_entry"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="10px"
+                android:text="OK" />
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:text="Cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_entry"
+                android:layout_toLeftOf="@id/btn_Ok"/>
+        </RelativeLayout>
+        <Button
+            android:id="@+id/btn_test1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Type here"/>
-        <EditText
-            android:id="@+id/et_entry"
+            android:text="打电话"/>
+        <Button
+            android:id="@+id/btn_test2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_title"/>
-
+            android:text="发短信"/>
         <Button
-            android:id="@+id/btn_Ok"
-            android:layout_width="wrap_content"
+            android:id="@+id/btn_start_weixin"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/et_entry"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="10px"
-            android:text="OK" />
-
-        <Button
-            android:id="@+id/btnCancel"
-            android:text="Cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/et_entry"
-            android:layout_toLeftOf="@id/btn_Ok"/>
-    </RelativeLayout>
+            android:text="启动微信"/>
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>
