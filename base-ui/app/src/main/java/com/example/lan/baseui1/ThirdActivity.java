@@ -7,7 +7,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Lan on 2018/1/28.
@@ -34,8 +37,19 @@ public class ThirdActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
 
+        List<Map<String, ?>> data = new ArrayList<>();
+        for (int i = 0; i < 50; i++) {
+            Map<String, String> map = new HashMap<>();
+            map.put("name", "lan" + i);
+            map.put("age", "100");
+            map.put("sex", i %2 == 0 ? "Male" : "Female");
+            data.add(map);
+        }
         ListView listView = (ListView)findViewById(R.id.list_view_my);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(ThirdActivity.this, android.R.layout.simple_list_item_1, android.R.id.text1, mData);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(ThirdActivity.this, android.R.layout.simple_list_item_1, android.R.id.text1, mData);
+        String[] from = {"name", "sex", "age"};
+        int[] to = {R.id.tv_name, R.id.tv_sex, R.id.tv_age};
+        SimpleAdapter adapter = new SimpleAdapter(ThirdActivity.this, data, R.layout.item_userinfo, from, to);
         listView.setAdapter(adapter);
 
     }
