@@ -1,8 +1,11 @@
 package com.example.lan.baseui1;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +26,8 @@ import java.util.Map;
  */
 
 public class ThirdActivity extends Activity {
+
+    List<View> mViewList = new ArrayList<>();
 
     class UserInfo
     {
@@ -118,6 +123,46 @@ public class ThirdActivity extends Activity {
 
         UserinfoAdapter adapter = new UserinfoAdapter();
         listView.setAdapter(adapter);
+        ViewPager vp = (ViewPager)findViewById(R.id.view_pager_my);
+        {
+            View view = LayoutInflater.from(ThirdActivity.this).inflate(R.layout.view_pager_item, null);
+            ImageView imageView = (ImageView) view.findViewById(R.id.iv_item);
+            imageView.setBackgroundColor(Color.RED);
+            mViewList.add(view);
+        }
+        {
+            View view = LayoutInflater.from(ThirdActivity.this).inflate(R.layout.view_pager_item, null);
+            ImageView imageView = (ImageView) view.findViewById(R.id.iv_item);
+            imageView.setBackgroundColor(Color.GREEN);
+            mViewList.add(view);
+        }
+        {
+            View view = LayoutInflater.from(ThirdActivity.this).inflate(R.layout.view_pager_item, null);
+            ImageView imageView = (ImageView) view.findViewById(R.id.iv_item);
+            imageView.setBackgroundColor(Color.BLUE);
+            mViewList.add(view);
+        }
+        vp.setAdapter(new PagerAdapter() {
+            @Override
+            public int getCount() {
+                return mViewList.size();
+            }
 
+            @Override
+            public boolean isViewFromObject(View view, Object object) {
+                return view == object;
+            }
+
+            @Override
+            public Object instantiateItem(ViewGroup container, int position) {
+                container.addView(mViewList.get(position));
+                return mViewList.get(position);
+            }
+
+            @Override
+            public void destroyItem(ViewGroup container, int position, Object object) {
+                container.removeView(mViewList.get(position));
+            }
+        });
     }
 }
